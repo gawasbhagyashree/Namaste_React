@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  background: hwb(206 95% 3%);
+  color: hsl(209, 61%, 16%);
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.res-container {
+  padding: 50px;
+  margin: 50px;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 30px;
+  background-color: aliceblue;
+  justify-items: center;
+}
+
+.res-card {
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.res-card:hover {
+  transform: scale(0.95); /* Shrinks the image on hover */
+  cursor: pointer;
+}
+
+.res-info{
+  width: 250px ;
+  height: 40%;
+}
+
+/* Designing the image and the text on it */
+
+.image {
+  height: 60%;
+  width: 220px;
+  position: relative; /* Needed for the pseudo-element to position relative to this container */
+  overflow: hidden; /* Ensure that the gradient does not overflow */
+}
+
+
+
+.image img {
+  width: 100%;  
+  height: 100%; 
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  position: relative;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Pseudo-element to create a gradient overlay at the bottom of the image */
+.image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%; /* Adjust this value to change how much of the bottom is darkened */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent); /* Dark to transparent gradient */
+  border-radius: 0.5rem; /* Match the border-radius of the image */
+  pointer-events: none; /* Prevent the overlay from blocking interactions with the image */
+  z-index: 1; /* Ensure the gradient is behind the text */
+
+}
+
+.image-txt {
+  /* position absolute wrt position relative of image img */
+  position: absolute;  
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  z-index: 2; /* Ensure the text is above the gradient overlay */
+
+}
+/*******************************************************/
+
+/* DESIGNING THE Li inside of .rating */
+.rating {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.rating ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.rating-image {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.rating-image::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1rem; /* Width of the image */
+  height: 1rem; /* Height of the image */
+  background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbN8ySLAq6yOeWNYX-iZunjVKIMLNgPSY8Hg&s');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.rating-time {
+  margin-left: 0.5rem;
+  list-style-type: disc;
+  text-align: right;
+  list-style-position: inside;
+}
+
+/**********************************************/
+
+.res-name {
+  margin: 10px 10px 10px 0;
+}
+
+.cuisine {
+  color: rgb(135, 137, 139);
+  font-weight: normal;
+  margin-top: 10px;
+}
