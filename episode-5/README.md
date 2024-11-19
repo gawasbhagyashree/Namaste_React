@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# App.js
+<br>
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Uses the resObj data to get a list of all the restaurants, filters it based the prop from CuisineBtns component]
 
-## Available Scripts
+### 1. State Declaration**
 
-In the project directory, you can run:
+`const [selectedCuisine, setSelectedCuisine] = useState('ALL')`
 
-### `npm start`
+### 2. List of All Restaurants
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+`const listOfAllRestaurants = resObj.restaurants`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This line creates a constant __listOfAllRestaurants__ that references the array of restaurants stored in resObj.restaurants. This array contains all the restaurant objects that will be displayed or filtered.
 
-### `npm test`
+### 3. Filtering Restaurants
+`const filteredRestaurants = selectedCuisine === 'ALL' ? (listOfAllRestaurants) : (listOfAllRestaurants.filter(rest => {
+  return (
+    rest.info.cuisines.includes(selectedCuisine)
+  )
+}))`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Conditional (Ternary) Operator: This line uses a ternary operator to determine what value filteredRestaurants should hold:
 
-### `npm run build`
+If selectedCuisine is equal to 'ALL', it assigns filteredRestaurants the value of listOfAllRestaurants. This means all restaurants will be displayed.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+If selectedCuisine is not 'ALL', it filters listOfAllRestaurants using the filter() method.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+listOfAllRestaurants.filter(...) creates a new array that only includes restaurants for which the condition is true.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The callback function inside filter receives each restaurant object (rest) and checks if selectedCuisine is included in that restaurant's cuisines array.
 
-### `npm run eject`
+`rest.info.cuisines.includes(selectedCuisine)
+`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+ This checks whether the cuisines array of the rest object contains the value of selectedCuisine. If it does, that restaurant is included in the filteredRestaurants array.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#CuisineBtns

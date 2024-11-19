@@ -138,3 +138,11 @@ body {
   font-weight: normal;
   margin-top: 10px;
 }
+
+/********DESIGNING THE CUISINE CATEGORY BUTTON CONTAINER********************/
+.cuisine-images-container{
+  background-color: aquamarine;
+  display: grid;
+  
+
+}

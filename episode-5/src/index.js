@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Header from './App';  // HeadingComponent is a default export
+import Body from './App.js'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <div>
-        {Header}
+    <Body/>
     </div>
 );
 
