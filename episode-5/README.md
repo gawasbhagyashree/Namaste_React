@@ -36,6 +36,57 @@ The callback function inside filter receives each restaurant object (rest) and c
 
  This checks whether the cuisines array of the rest object contains the value of selectedCuisine. If it does, that restaurant is included in the filteredRestaurants array.
 
-
+***
+***
+<br>
+<br>
 
 #CuisineBtns
+
+#### resObj 
+```
+resObj.restaurants = [
+    {
+        info: {
+            cuisines: ["Burgers", "American"]
+        }
+    },
+    {
+        info: {
+            cuisines: ["Italian", "Pasta"]
+        }
+    },
+    {
+        info: {
+            cuisines: ["Mexican", "Tacos"]
+        }
+    }
+];
+
+```
+#### reduce allows to combine or transform the elements of an array into a single value 
+#### concat used to combine two arrays into one
+<br>
+<br>
+
+### 1. const allCuisines iterations:
+<br>
+acc = []
+with reduce : restaurant.info.cuisines = ["Burgers", "American"]
+acc.concat(["Burgers", "American"]) = ["Burgers", "American"]
+<br>
+Iteration 2:
+acc = ["Burgers", "American"]
+with reduce: restaurant.info.cuisines = ["Italian", "Pasta"]
+acc.concat(["Italian", "Pasta"]) = ["Burgers", "American", "Italian", "Pasta"]
+<br>
+Iteration 3:
+acc = ["Burgers", "American", "Italian", "Pasta"]
+with reduce: restaurant.info.cuisines = ["Mexican", "Tacos"]
+acc.concat(["Mexican", "Tacos"]) = ["Burgers", "American", "Italian", "Pasta", "Mexican", "Tacos"]
+<br>
+Output:
+["Burgers", "American", "Italian", "Pasta", "Mexican", "Tacos"]
+
+
+

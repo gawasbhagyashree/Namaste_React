@@ -15,7 +15,7 @@ const CuisineBtns = (props) => {
             acc.concat(restaurant.info.cuisines)
         )
     }, [])
-    //? console.log(allCusines)
+    console.log("allCuisines :" + allCusines)
 
     /**To Get an Array of the Unique Cuisines  */
     const uniqueCuisines = allCusines.reduce((acc, cuisine) => {
