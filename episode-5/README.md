@@ -41,7 +41,7 @@ The callback function inside filter receives each restaurant object (rest) and c
 <br>
 <br>
 
-#CuisineBtns
+# CuisineBtns
 
 #### resObj 
 ```
@@ -71,22 +71,45 @@ resObj.restaurants = [
 
 ### 1. const allCuisines iterations:
 <br>
+Iteration 1:
+
 acc = []
+
 with reduce : restaurant.info.cuisines = ["Burgers", "American"]
+
 acc.concat(["Burgers", "American"]) = ["Burgers", "American"]
+
 <br>
 Iteration 2:
+
 acc = ["Burgers", "American"]
+
 with reduce: restaurant.info.cuisines = ["Italian", "Pasta"]
+
 acc.concat(["Italian", "Pasta"]) = ["Burgers", "American", "Italian", "Pasta"]
+
 <br>
 Iteration 3:
+
 acc = ["Burgers", "American", "Italian", "Pasta"]
+
 with reduce: restaurant.info.cuisines = ["Mexican", "Tacos"]
+
 acc.concat(["Mexican", "Tacos"]) = ["Burgers", "American", "Italian", "Pasta", "Mexican", "Tacos"]
+
 <br>
 Output:
 ["Burgers", "American", "Italian", "Pasta", "Mexican", "Tacos"]
 
+<br>
 
+### 2. uniqueCuisines 
 
+Goal is to remove the duplicates in allCuisines array.
+
+Used the reduce method on allCuisines which might have duplicates.
+
+For each cuisine in allCuisines, the code checks if it's already in acc using acc.includes(cuisine).
+If not, it adds the cuisine to acc using acc.push(cuisine).
+
+### 3. rest of the code is to be updated later
